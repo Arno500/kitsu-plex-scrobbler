@@ -3,17 +3,18 @@
 - Watches Plex log file for activity and submits to Kitsu
 - Supports [kitsu](https://github.com/matthewdias/Kitsu.bundle), thetvdb and [hama](https://github.com/ZeroQI/Hama.bundle) agents. (Use kitsu for best results)
 - thetvdb and hama agents require tvdb/anidb mappings for the media to exist in Kitsu's database
-- Must run on same machine as Plex Media Server
+- Must run on same machine as Plex Media Server (and Plex Media Server must have debug logs enabled)
+
 
 ### Run it
 
 ##### Running with Node.js
 
-1. Install [PostgreSQL](https://www.postgresql.org/)
-2. Create a database
-3. Install [current Node.js](https://nodejs.org)
-4. Run `npm install`
-5. Set [env vars](#Env-vars) and run `npm start`
+<!-- 1. Install [PostgreSQL](https://www.postgresql.org/) -->
+<!-- 2. Create a database -->
+1. Install [current Node.js](https://nodejs.org)
+2. Run `npm install`
+3. Set [env vars](#Env-vars) and run `npm start`
 
 ##### Running with Docker
 
@@ -27,8 +28,8 @@
 | `PLEX_HOST` | `http://localhost:32400` | Plex Media Server host | Optional | Optional <br /> (Docker for Mac/Windows users should set this to `http://host.docker.internal:<plex port>`) |
 | `PLEX_LOGS` | none | Location of your Plex Media Server log files [(instructions)](https://support.plex.tv/articles/200250417-plex-media-server-log-files/) <br /> Common locations: <ul> <li>macOS: `"~/Library/Logs/Plex Media Server"`</li> <li>Linux: `"/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Logs"`</li> <li>Windows: `"~\\AppData\\Local\\Plex Media Server\\Logs"`</li> <li>FreeBSD: `"/usr/local/plexdata/Plex Media Server/Logs"`</li> <ul> | Required | Required |
 | `PORT` | `8929` | Port for web server to listen on | Optional | Optional |
-| `DATABASE_URL` | `postgres://postgres@localhost:5432/kitsu-plex-scrobbler` | Connection URL for your PostgreSQL database | Optional | Ignored |
-| `POSTGRES_PORT` | `5434` | Port for included PostgreSQL database to listen on | Ignored | Optional |
+<!-- | `DATABASE_URL` | `postgres://postgres@localhost:5432/kitsu-plex-scrobbler` | Connection URL for your PostgreSQL database | Optional | Ignored | -->
+<!-- | `POSTGRES_PORT` | `5434` | Port for included PostgreSQL database to listen on | Ignored | Optional | -->
   
 ##### Setting env vars for a command
 

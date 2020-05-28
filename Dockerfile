@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:14
 
 WORKDIR /app
 
@@ -8,6 +8,7 @@ RUN npm install --save-dev inotify-proxy --no-bin-links
 
 COPY . /app
 
-RUN apt-get update && apt-get install -y postgresql-client
+#RUN apt-get update && apt-get install -y postgresql-client
 
-ENTRYPOINT ./wait-for-postgres.sh $DATABASE_URL npm run start-docker
+#ENTRYPOINT ./wait-for-postgres.sh $DATABASE_URL npm run start-docker
+ENTRYPOINT npm run start-docker

@@ -1,12 +1,16 @@
 const knex = require('knex')
 const { Model, knexSnakeCaseMappers } = require('objection')
 
-const { DATABASE_URL } = require('../config')
-
+// const { DATABASE_URL } = require('../config')
+const configData = require("../../../knexfile.js")
 Model.knex(knex({
-  client: 'pg',
-  connection: DATABASE_URL,
-  useNullasDefault: true,
+  ...configData.production,
+  connection: {
+    ...configData.production.connection
+  },
+//  client: 'pg',
+//  connection: DATABASE_URL,
+//  useNullasDefault: true,
   ...knexSnakeCaseMappers()
 }))
 
